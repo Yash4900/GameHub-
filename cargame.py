@@ -75,6 +75,7 @@ def button(msg,x,y,w,h,ic,ac,action=None):
     gamedisplays.blit(textsurf, textrect)
 
 def paused():
+    pygame.mixer.music.stop()
     global pause
     pause=False
     while not pause:
@@ -97,6 +98,7 @@ def paused():
 def unpaused():
     global pause
     pause=True
+    pygame.mixer.music.play()
 
 def countdown_background():
     font=pygame.font.SysFont(None,25)
@@ -268,7 +270,11 @@ def message_display(text):
     game_loop()
 
 def crash():
+    pygame.mixer.music.load('sounds\\CARCRASH.mp3')
+    pygame.mixer.music.play()
     message_display("YOU CRASHED !!")
+    pygame.mixer.music.load('sounds\\CARBGMUSIC.mp3')
+    pygame.mixer.music.play(-1)
 
 def car(x,y):
     gamedisplays.blit(carimg,(x,y))
@@ -300,6 +306,8 @@ def game_loop():
     with open("CarScore.txt", "r") as f:
         highscore = int(f.read())
 
+    pygame.mixer.music.load('sounds\\CARBGMUSIC.mp3')
+    pygame.mixer.music.play(-1)
     while not bumped:
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
@@ -369,8 +377,14 @@ def game_loop():
                 textsurf,textrect=text_objects("LEVEL "+str(level),largetext)
                 textrect.center=((display_width/2,display_height/2))
                 gamedisplays.blit(textsurf,textrect)
+                pygame.mixer.music.stop()
+                time.sleep(1)
+                pygame.mixer.music.load('sounds\\CARNEWLEVEL.mp3')
+                pygame.mixer.music.play()
                 pygame.display.update()
-                time.sleep(2)
+                time.sleep(1)
+                pygame.mixer.music.load('sounds\\CARBGMUSIC.mp3')
+                pygame.mixer.music.play(-1)
 
         if y < obs_starty + obs_height:
             if (x > obs_startx and x < obs_startx + obs_width) or (x + car_width > obs_startx and x + car_width < obs_startx + obs_width):

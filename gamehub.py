@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter.ttk import Progressbar
 import time
 import threading
 import random
@@ -6,7 +7,7 @@ import os
 import pygame
 
 def start_snakes(self):
-	root.withdraw()#destroy tkinter window
+	root.withdraw()
 	os.system('python snakegame.py')
 	root.deiconify()
 
@@ -17,15 +18,25 @@ def start_flappy(self):
 
 def start_racing(self):
 	root.withdraw()
-	
+	os.system('python cargame.py')
 	root.deiconify()
 
 def pause():
-	time.sleep(7)
+	progress['value'] = 20
+	time.sleep(1)
+	progress['value'] = 40
+	time.sleep(1)
+	progress['value'] = 50
+	time.sleep(1)
+	progress['value'] = 60
+	time.sleep(1)
+	progress['value'] = 80
+	time.sleep(1)
+	progress['value'] = 100
+	progress.pack_forget()
 	title.pack_forget()
 	select.pack(anchor=NW)
 	l4.pack(side=TOP, anchor=NW)
-
 	l1.pack(padx=45, side=LEFT)
 	l1.bind("<Button-1>", start_snakes)
 	l2.pack(padx=45, side=LEFT)
@@ -42,7 +53,8 @@ root.maxsize(800,500)
 root.title("Gamehub")
 title = Label(root,text="Welcome To Gamehub",font="consolas 40", fg="white", bg="black")
 title.pack(pady=200)
-
+progress = Progressbar(root,orient=HORIZONTAL,length=500,mode='determinate')
+progress.pack()
 t1 = threading.Thread(target=pause)
 t1.start()
 

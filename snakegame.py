@@ -59,6 +59,7 @@ def instructions():
         pygame.display.update()
         clock.tick(60)
     pygame.quit()
+    quit()
 
 #welcome window
 def start_window():
@@ -93,6 +94,7 @@ def start_window():
         pygame.display.update()
         clock.tick(60)
     pygame.quit()
+    quit()
 
 #game window
 def gameloop():

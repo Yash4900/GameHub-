@@ -15,6 +15,6 @@ For playing run gamehub.py file.
 GameHub is a project where we have made 3 different games and integrated into one python project.
 Games are pretty simple to play. All three of us made it to explore gaming library in python.
 Games are:
-1. Snake.
-2. Flappy Bird.
-3. Car Racing.
+1. Snake. (Made by Yash Satra)
+2. Flappy Bird. (Made by Rajat Sharma)
+3. Car Racing. (Made by Devansh Shah)

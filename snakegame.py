@@ -12,7 +12,7 @@ gameWindow = pygame.display.set_mode((window_width, window_height))
 pygame.display.set_caption("Snakes")
 pygame.display.update()
 clock = pygame.time.Clock()
-font = pygame.font.SysFont(None, 40)
+font = pygame.font.SysFont("comicsansms", 25)
 
 #function for creating button
 def button(color, font_color, button_x, button_y, font_x, font_y, button_width, button_height, text=''):
@@ -33,15 +33,16 @@ def plot_snake(gameWindow, color, snake_body, snake_size):
 def instructions():
     exit_game = False
     while not exit_game:
-        gameWindow.fill((137,202,2))
-        button((0,138,0), (255,255,255),750,50,756,57,90,40,"BACK")
+        gameWindow.fill((148,148,148))
+        button((90,90,90), (255,255,255),750,50,756,53,90,40,"BACK")
 
         #displaying instructions
-        display_text("INSTRUCTIONS:",(0,0,0),150,160)
-        display_text("1. Do not collapse the head on the wall or snake body",(0,0,0),150,200)
-        display_text("2. Use your cursor keys: up, left, right, and down",(0,0,0),150,260)
-        display_text("3. Keyboard p is used for Play and Pause",(0,0,0), 150, 320)
-        display_text("4. Eat the colored apples to gain points",(0,0,0), 150, 380)
+        display_text("INSTRUCTIONS:",(0,0,0),80,160)
+        display_text("1. Do not collapse the head on the wall or snake body",(0,0,0),80,200)
+        display_text("2. Use your cursor keys: up, left, right, and down to control",(0,0,0),80,270)
+        display_text("the snake",(0,0,0),80, 330)
+        display_text('3. Keyboard "p" is used for Play and Pause',(0,0,0), 80, 390)
+        display_text("4. Eating each coloured apple will gain you 10 points",(0,0,0), 80, 450)
        
         #get mouse position
         mouse_pos = pygame.mouse.get_pos()
@@ -49,7 +50,6 @@ def instructions():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 exit_game = True
-                pygame.quit()
 
             #logic for clicking on BACK button    
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -69,8 +69,8 @@ def start_window():
         bgimg = pygame.transform.scale(bgimg, (window_width, window_height)).convert_alpha()
         gameWindow.blit(bgimg, (0, 0))
 
-        button((0,138,0), (255,255,255), 310, 250, 340, 260, 270, 40, "INSTRUCTIONS")        
-        button((0,138,0), (255,255,255), 370, 350, 395, 360, 130, 40, "PLAY")
+        button((90,90,90), (255,255,255), 310, 250, 340, 254, 270, 40, "INSTRUCTIONS")        
+        button((90,90,90), (255,255,255), 370, 350, 400, 354, 130, 40, "PLAY")
 
         mouse_pos = pygame.mouse.get_pos()
 
@@ -96,7 +96,7 @@ def start_window():
     pygame.quit()
     quit()
 
-#game window
+#gameloop
 def gameloop():
 
     # Game specific variables
@@ -152,7 +152,7 @@ def gameloop():
             bgimg = pygame.transform.scale(bgimg, (window_width, window_height)).convert_alpha()
             gameWindow.blit(bgimg, (0, 0))   
 
-            display_text("Press Enter To Continue", (255,255,255), 285, 450)
+            display_text("Press Enter To Continue", (255,255,255), 303, 450)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -222,7 +222,7 @@ def gameloop():
             snake_head.append(snake_y)
             #this will add a new part to snake in each loop cycle
             snake_body.append(snake_head)
-            #but we want to limit the length upto snake length so we delete the head
+            #but we want to limit the length upto snake length so we delete the tail
             if len(snake_body)>snake_length:
                 del snake_body[0]
 
@@ -233,7 +233,7 @@ def gameloop():
                 pygame.mixer.music.play()
 
             #snake head collapses with wall then game-over
-            if snake_x<0 or snake_x>window_width or snake_y<50 or snake_y>window_height:
+            if snake_x<0 or snake_x>window_width or snake_y<55 or snake_y>window_height:
                 game_over = True
                 pygame.mixer.music.load('sounds/GAMEOVER.mp3')
                 pygame.mixer.music.play()

@@ -12,8 +12,8 @@ Python Requirements:
 
 For playing run gamehub.py file.
 
-GameHub is a project where we have made 3 different games and integrated into one python project
-Games are pretty simple to play. All three of made it to explore gaming library in python.
+GameHub is a project where we have made 3 different games and integrated into one python project.
+Games are pretty simple to play. All three of us made it to explore gaming library in python.
 Games are:
 1. Snake.
 2. Flappy Bird.

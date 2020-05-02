@@ -20,6 +20,7 @@ def start_flappy(*args):
 	pygame.mixer.music.stop()
 	playsound.playsound('sounds/SELECT.mp3')
 	root.withdraw()
+	os.system('python main.py')
 
 	root.deiconify()
 	pygame.mixer.music.play()

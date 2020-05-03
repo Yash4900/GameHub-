@@ -4,6 +4,8 @@ import random
 import os
 
 pygame.init()
+gameicon = pygame.image.load('img/game.png')
+pygame.display.set_icon(gameicon)
 gray=(128,126,127)
 black=(0,0,0)
 red=(200,0,0)

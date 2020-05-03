@@ -3,6 +3,8 @@ import sys # We will use sys.exit to exit the program
 import pygame
 from pygame.locals import * # Basic pygame imports
 # Global Variables for the game
+gameicon = pygame.image.load('img/game.png')
+pygame.display.set_icon(gameicon)
 FPS = 32
 SCREENWIDTH = 289
 SCREENHEIGHT = 511

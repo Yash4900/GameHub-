@@ -6,6 +6,8 @@ import os
 
 pygame.init()
 #creating game window
+gameicon = pygame.image.load('img/game.png')
+pygame.display.set_icon(gameicon)
 window_width = 900
 window_height = 650
 gameWindow = pygame.display.set_mode((window_width, window_height))

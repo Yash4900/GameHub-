@@ -12,7 +12,7 @@ def start_snakes(*args):
 	pygame.mixer.music.stop()
 	playsound.playsound('sounds/SELECT.mp3')
 	root.withdraw()
-	os.system('python snakegame.py')
+	os.system('pythonw snakegame.py')
 	root.deiconify()
 	pygame.mixer.music.play()
 
@@ -20,7 +20,7 @@ def start_flappy(*args):
 	pygame.mixer.music.stop()
 	playsound.playsound('sounds/SELECT.mp3')
 	root.withdraw()
-	os.system('python main.py')
+	os.system('pythonw main.py')
 
 	root.deiconify()
 	pygame.mixer.music.play()
@@ -29,7 +29,7 @@ def start_racing(*args):
 	pygame.mixer.music.stop()
 	playsound.playsound('sounds/SELECT.mp3')
 	root.withdraw()
-	os.system('python cargame.py')
+	os.system('pythonw cargame.py')
 	root.deiconify()
 	pygame.mixer.music.play()
 
